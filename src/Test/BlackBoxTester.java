@@ -59,8 +59,6 @@ public class BlackBoxTester {
 		testLogoutForClient();
 		testLoadConversation();
 		System.out.println("//////////////////////////////");
-		System.out.println("Converastion Test: ");
-		
 		System.out.println("Message Test: ");
 		Message msg =createMessage(Arrays.asList(2,3));
 		//Display attributes
@@ -70,7 +68,7 @@ public class BlackBoxTester {
 	}
 	
 	public static void testCreateUser() {
-		ServerUser user= new ServerUser("quang","12345");
+		ServerUser user= new ServerUser("Tester","12345");
 		assert user.getUserId() > 0: "User ID should not be less than 0";
 		assert user.getUsername().equals("quang"): "Username matched";
 		assert !user.isLoggedIn():"User should not be logged in ";
@@ -82,7 +80,7 @@ public class BlackBoxTester {
 		ServerUser user = new ServerUser("Bob", "4567");
 		Set<ServerUser> participants = new HashSet<>();
 		
-		participants.add(new ServerUser("Quang", "12345"));
+		participants.add(new ServerUser("Tester", "12345"));
 		Conversation conversation = new Conversation(participants);
 		user.addConversation(conversation);
 		assert user.getConversations().contains(conversation): "Conversation should be added";
